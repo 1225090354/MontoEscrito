@@ -1,18 +1,24 @@
 public class MontoEscrito {
 	
 	public static void main (String args[]) {
-		short entrada = 95;
+		int entrada = 9468;
 		String salida = "";
 		String salida2 = Convertir(entrada, salida);
 		System.out.print(salida2);
 	}
  
-	public static String Convertir (short entrada, String salida) {
+	public static String Convertir (int entrada, String salida) {
         
 		int cifras = Integer.toString(entrada).length();
 		String[][] numero09 = {{"CERO", "UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE"}};
 		String[][] numero1020 = {{"DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUICE", "DIESISEIS", "DIESISIETE", "DIESIOCHO", "DIESINUEVE", "VEINTE"}};
 		String[][] numero00 = {{"CERO", "DIEZ", "VEINTE", "TREINTA", "CUARENTA", "CINCUENTA", "SESENTA", "SETENTA", "OCHENTA", "NOVENTA"}};
+		String[][] numero001= {{"CERO", "CIEN", "DOCIENTOS", "TRECIENTOS", "CUATROCIENTOS", "QUINIENTOS", "SEISCIENTOS", "SETECIENTOS", "OCHOCIENTOS", "NOVECIENTOS"}};
+		int numero = entrada;
+		int cuarto;
+		int tercero;
+		int segundo;
+	    int primero;
 		
 		if (cifras == 1) {
 			//Es del 0 al 9
@@ -21,12 +27,7 @@ public class MontoEscrito {
 			}
 		}else if (cifras == 2) {
 			//Es del 10 al 99
-			int numero = entrada;
-			int segundo;
-		    int primero;
-						
 	        segundo = numero%10;
-
 	        numero = numero/10;
 	        primero = numero%10;
 	        
@@ -35,16 +36,32 @@ public class MontoEscrito {
 					if(i == entrada) {salida = numero1020[0][i-10] + " PESOS";};
 	        	}
 	        }else if (entrada > 20) {
-	        	salida = numero00[0][primero] + " Y " + numero09[0][segundo]; 
+	        	salida = numero00[0][primero] + " Y " + numero09[0][segundo] + " PESOS"; 
 	        }
 	        
 			
 		}else if (cifras == 3) {
 			//Es del 100 al 999
-			
+			tercero = numero%10;
+			numero = numero/10;
+			segundo = numero%10;
+	        numero = numero/10;
+	        primero = numero%10;
+	        
+	        salida = numero001[0][primero] + " " + numero00[0][segundo] + " Y " + numero09[0][tercero] + " PESOS";
+	        
 		}else if (cifras == 4) {
 			// Es del 1000 al 9999
 			
+			cuarto = numero%10;
+			numero = numero/10;
+			tercero = numero%10;
+			numero = numero/10;
+			segundo = numero%10;
+	        numero = numero/10;
+	        primero = numero%10;
+	        
+	        salida = numero09[0][primero] + "MIL " + numero001[0][segundo] + " " + numero00[0][tercero] + " Y " + numero09[0][cuarto] + " PESOS";
 		}else {
 			System.out.print("El programa no soporta esta cantidad de cifras");
 		}
