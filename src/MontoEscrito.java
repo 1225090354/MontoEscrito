@@ -1,13 +1,18 @@
 
 public class MontoEscrito {
- short entrada = 2;
+	public static void main (String args[]) {
+		short entrada = 2;
+		String salida = "";
+		String salida2 = Convertir(entrada, salida);
+		System.out.print(salida2);
+	}
  
 	public static String Convertir (short entrada, String salida) {
 		int cifras = Integer.toString(entrada).length();
 		
 		if (cifras == 1) {
 			//Es del 0 al 9
-			if(entrada == 1) {salida = "UN";}
+			if(entrada == 1) {salida = "UNO";}
 			if(entrada == 2) {salida = "DOS";}
 			if(entrada == 3) {salida = "TRES";}
 			if(entrada == 4) {salida = "CUATRO";}
@@ -16,6 +21,7 @@ public class MontoEscrito {
 			if(entrada == 7) {salida = "SIETE";}
 			if(entrada == 8) {salida = "OCHO";}
 			if(entrada == 9) {salida = "NUEVE";}
+			salida = salida + " PESOS";
 		}else if (cifras == 2) {
 			//Es del 10 al 99
 			
@@ -29,13 +35,10 @@ public class MontoEscrito {
 			System.out.print("El programa no soporta esta cantidad de cifras");
 		}
 		
-		
-		
-		
-		
-		
 		return salida;
 		
 	}
 	
 }
+
+
