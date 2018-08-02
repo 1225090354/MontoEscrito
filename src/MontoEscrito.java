@@ -23,7 +23,7 @@ public class MontoEscrito {
 		if (cifras == 1) {
 			//Es del 0 al 9
 			for (short i = 0;i<=9;i++) {
-				if(i == entrada) {salida = numero09[0][i] + " PESOS";};
+				if(i == entrada) {salida = numero09[0][i];};
 			}
 		}else if (cifras == 2) {
 			//Es del 10 al 99
@@ -33,10 +33,10 @@ public class MontoEscrito {
 	        
 	        if(entrada <= 20) {
 	        	for (short i = 0;i<=20;i++) {				
-					if(i == entrada) {salida = numero1020[0][i-10] + " PESOS";};
+					if(i == entrada) {salida = numero1020[0][i-10];};
 	        	}
 	        }else if (entrada > 20) {
-	        	salida = numero00[0][primero] + " Y " + numero09[0][segundo] + " PESOS"; 
+	        	salida = numero00[0][primero] + " Y " + numero09[0][segundo]; 
 	        }
 	        
 			
@@ -48,7 +48,7 @@ public class MontoEscrito {
 	        numero = numero/10;
 	        primero = numero%10;
 	        
-	        salida = numero001[0][primero] + " " + numero00[0][segundo] + " Y " + numero09[0][tercero] + " PESOS";
+	        salida = numero001[0][primero] + " " + numero00[0][segundo] + " Y " + numero09[0][tercero];
 	        
 		}else if (cifras == 4) {
 			// Es del 1000 al 9999
@@ -61,7 +61,7 @@ public class MontoEscrito {
 	        numero = numero/10;
 	        primero = numero%10;
 	        
-	        salida = numero09[0][primero] + "MIL " + numero001[0][segundo] + " " + numero00[0][tercero] + " Y " + numero09[0][cuarto] + " PESOS";
+	        salida = numero09[0][primero] + "MIL " + numero001[0][segundo] + " " + numero00[0][tercero] + " Y " + numero09[0][cuarto];
 		}else {
 			System.out.print("El programa no soporta esta cantidad de cifras");
 		}
