@@ -1,11 +1,13 @@
 public class MontoEscrito {
+	//Nombre : Juan Jose Quiceno Marin ;
+	//Codigo : 1225090354;
 	
-	public static void main (String args[]) {
+	/*public static void main (String args[]) {
 		int entrada = 9468;
 		String salida = "";
 		String salida2 = Convertir(entrada, salida);
 		System.out.print(salida2);
-	}
+	}*/
  
 	public static String Convertir (int entrada, String salida) {
         
