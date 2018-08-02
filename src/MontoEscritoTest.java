@@ -6,8 +6,8 @@ class MontoEscritoTest {
 	
 	@Test
 	public void ConvertidTest () {
-		String resultado = MontoEscrito.Convertir(486, "");
-		String esperado = "CUATROCIENTOS OCHENTA Y SEIS";
+		String resultado = MontoEscrito.Convertir(8486, "");
+		String esperado = "OCHOMIL CUATROCIENTOS OCHENTA Y SEIS";
 		assertEquals(esperado, resultado);
 		}
 
