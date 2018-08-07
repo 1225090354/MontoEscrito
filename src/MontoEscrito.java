@@ -2,68 +2,41 @@ public class MontoEscrito {
 	//Nombre : Juan Jose Quiceno Marin ;
 	//Codigo : 1225090354;
 	
-	/*public static void main (String args[]) {
-		int entrada = 9468;
-		String salida = "";
-		String salida2 = Convertir(entrada, salida);
-		System.out.print(salida2);
-	}*/
+	public static void main (String args[]) {
+		String entrada = "9789";
+		String salida = convertir(entrada);
+		System.out.print(salida);
+	}
  
-	public static String Convertir (int entrada, String salida) {
-        
-		int cifras = Integer.toString(entrada).length();
-		String[][] numero09 = {{"CERO", "UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE"}};
-		String[][] numero1020 = {{"DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUICE", "DIESISEIS", "DIESISIETE", "DIESIOCHO", "DIESINUEVE", "VEINTE"}};
-		String[][] numero00 = {{"CERO", "DIEZ", "VEINTE", "TREINTA", "CUARENTA", "CINCUENTA", "SESENTA", "SETENTA", "OCHENTA", "NOVENTA"}};
-		String[][] numero001= {{"CERO", "CIEN", "DOCIENTOS", "TRECIENTOS", "CUATROCIENTOS", "QUINIENTOS", "SEISCIENTOS", "SETECIENTOS", "OCHOCIENTOS", "NOVECIENTOS"}};
-		int numero = entrada;
-		int cuarto;
-		int tercero;
-		int segundo;
-	    int primero;
+	public static String convertir (String entrada) {
+        int cifras = entrada.length();
+        String salida = "";
+		String[] numero01 = {"CERO", "UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE", "OCHO", "NUEVE", "DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUICE", "DIESISEIS", "DIESISIETE", "DIESIOCHO", "DIESINUEVE", "VEINTE"};
+		String[] numero02 = {"CERO", "DIEZ", "VEINTE", "TREINTA", "CUARENTA", "CINCUENTA", "SESENTA", "SETENTA", "OCHENTA", "NOVENTA"};
+		String[] numero03= {"CERO", "CIEN", "DOCIENTOS", "TRECIENTOS", "CUATROCIENTOS", "QUINIENTOS", "SEISCIENTOS", "SETECIENTOS", "OCHOCIENTOS", "NOVECIENTOS"};
+		//Se crea vector para almacena los numero separados
+		int numero[] = new int[cifras];
+		for (int c = 0;c < cifras; c++) {
+			numero[c] = Integer.parseInt(entrada.split("")[c]);
+		}
 		
 		if (cifras == 1) {
 			//Es del 0 al 9
-			for (short i = 0;i<=9;i++) {
-				if(i == entrada) {salida = numero09[0][i];};
-			}
+			salida = numero01[Integer.parseInt(entrada)];
 		}else if (cifras == 2) {
 			//Es del 10 al 99
-	        segundo = numero%10;
-	        numero = numero/10;
-	        primero = numero%10;
-	        
-	        if(entrada <= 20) {
-	        	for (short i = 0;i<=20;i++) {				
-					if(i == entrada) {salida = numero1020[0][i-10];};
-	        	}
-	        }else if (entrada > 20) {
-	        	salida = numero00[0][primero] + " Y " + numero09[0][segundo]; 
+	        if(Integer.parseInt(entrada) <= 20) {
+	        	salida = numero01[Integer.parseInt(entrada)];
+	        }else if (Integer.parseInt(entrada)> 20) {
+	        	salida = numero02[numero[0]] + " Y " + numero01[numero[1]]; 
 	        }
-	        
-			
 		}else if (cifras == 3) {
 			//Es del 100 al 999
-			tercero = numero%10;
-			numero = numero/10;
-			segundo = numero%10;
-	        numero = numero/10;
-	        primero = numero%10;
-	        
-	        salida = numero001[0][primero] + " " + numero00[0][segundo] + " Y " + numero09[0][tercero];
+	        salida = numero03[numero[0]] + " " + numero02[numero[1]] + " Y " + numero01[numero[2]];
 	        
 		}else if (cifras == 4) {
 			// Es del 1000 al 9999
-			
-			cuarto = numero%10;
-			numero = numero/10;
-			tercero = numero%10;
-			numero = numero/10;
-			segundo = numero%10;
-	        numero = numero/10;
-	        primero = numero%10;
-	        
-	        salida = numero09[0][primero] + "MIL " + numero001[0][segundo] + " " + numero00[0][tercero] + " Y " + numero09[0][cuarto];
+	        salida = numero01[numero[0]] + "MIL " + numero03[numero[1]] + " " + numero02[numero[2]] + " Y " + numero01[numero[3]];
 		}else {
 			System.out.print("El programa no soporta esta cantidad de cifras");
 		}

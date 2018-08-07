@@ -9,7 +9,7 @@ class MontoEscritoTest {
 	
 	@Test
 	public void ConvertirTest () {
-		String resultado = MontoEscrito.Convertir(8486, "");
+		String resultado = MontoEscrito.convertir("8486");
 		String esperado = "OCHOMIL CUATROCIENTOS OCHENTA Y SEIS";
 		assertEquals(esperado, resultado);
 		}
