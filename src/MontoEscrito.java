@@ -3,7 +3,7 @@ public class MontoEscrito {
 	// Codigo : 1225090354;
 
 	public static void main(String args[]) {
-		String entrada = "9789";
+		String entrada = "2587";
 		String salida = convertir(entrada);
 		System.out.print(salida);
 	}
